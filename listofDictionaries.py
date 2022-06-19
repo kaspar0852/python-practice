@@ -10,7 +10,7 @@ people = [
 def searchsmallestage():
     s_age = people[0]['age']
     for sm_age in people:
-        if sm_age['age'] <= s_age:
+        if sm_age['age'] < s_age:
             s_age = sm_age['age']    
             
     print(s_age)
