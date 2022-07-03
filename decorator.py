@@ -33,12 +33,20 @@ decorated_display() """
 #-2 line and then call display .Lets demonstrate this
 
 def decorator_function(orginal_function):
-    def wrapper_function():
-        return orginal_function()
+    def wrapper_function(*args,**kwargs):
+        return orginal_function(*args,**kwargs)
     return wrapper_function
+
+#with the help of args and kwargs we can pass any number of arguments and keyword arguments
+
+@decorator_function
+def display_info(name,age):
+    print('display info ran with arguments ({},{})'.format(name,age))   
 
 @decorator_function
 def display():
     print('I am DON')
 
 display()
+display_info('saugat',21)
+
