@@ -33,15 +33,32 @@ class Employee():
     def __init__(self,name,age,salary):
         self.name = name
         self.age = age
-        self.salry = salary
+        self.salary = salary
     def __repr__(self):
         return '({},{},${})'.format(self.name,self.age,self.salary)
 
-e1 = Employee('Sau',21,30000)
+e1 = Employee('Sau',21,60000)
 e2 = Employee('hardik',21,40000)
 e3 = Employee('guddu',21,35000)
 
 employees = [e1,e2,e3]
+#if we try to sort this without a key python will not know how to sort thme .
+
+def e_sort(emp):
+    return emp.name
+
+s_employee = sorted(employees,key=e_sort)
+
+#if we are familiar with lambda function something that small of a function can be written directly using lambda function
+sal_employee = sorted(employees,key = lambda emp: emp.salary)
+
+from operator import attrgetter
+ 
+age_employee = sorted(employees,key = attrgetter('age'))
+
+print(s_employee) #this returns all our emplyee based on their name
+print(sal_employee)
+print(age_employee)
 
 
 
